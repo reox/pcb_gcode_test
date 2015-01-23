@@ -31,14 +31,14 @@ for i, feedrate in enumerate(arange(start_feed, target_feed+1, 100)):
     print("; Feedrate: %f" % (feedrate))
     print("; f_z: %f " % (feedrate / (24000.0*2.0)))
     print("G0 X%f Y0" % (i * spacing))
-    # extra wait
-    print("G4 P5")
     print("G0 Z2")
     print("F%f" % (plungerate))
     print("G1 Z%f" % (z_target))
     print("F%f" % (feedrate))
     print("G1 Y%f" % (length))
     print("G0 Z10")
+    # extra wait
+    print("G4 P5")
     print("")
 
 print("M30")
